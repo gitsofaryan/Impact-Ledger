@@ -2,7 +2,9 @@ import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { CO2Chart } from "@/components/dashboard/CO2Chart";
 import { ActivityFeed } from "@/components/dashboard/ActivityFeed";
-import { DollarSign, Leaf, FileCheck, Users } from "lucide-react";
+import { DollarSign, Leaf, FileCheck, Users, AlertTriangle, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   return (
@@ -13,6 +15,27 @@ const Index = () => {
         <p className="text-muted-foreground mt-1">
           Welcome back. Here's your green finance overview.
         </p>
+      </div>
+
+      {/* Action Required Banner */}
+      <div className="mb-8 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 flex flex-col md:flex-row items-center justify-between gap-4 animate-fade-in">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center animate-pulse">
+            <AlertTriangle className="w-6 h-6 text-amber-500" />
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-foreground">Action Required: Verification Pending</h3>
+            <p className="text-muted-foreground">
+              <span className="font-medium text-foreground">Project Sunrise</span> is ready for Phase 2 (Construction) verification.
+            </p>
+          </div>
+        </div>
+        <Button className="w-full md:w-auto emerald-gradient shadow-lg" asChild>
+          <Link to="/loans/LN-2024-0042">
+            Verify Now
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Link>
+        </Button>
       </div>
 
       {/* Stats Grid */}
@@ -65,7 +88,7 @@ const Index = () => {
           <ActivityFeed />
         </div>
       </div>
-    </DashboardLayout>
+    </DashboardLayout >
   );
 };
 

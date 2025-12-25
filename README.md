@@ -1,55 +1,90 @@
-# Impact Ledger Dash
+# Impact Ledger 🌿
 
-## Overview
-Impact Ledger Dash is the frontend interface for the Impact Ledger platform, a blockchain-verified ESG lending solution. It provides a transparent trust layer for sustainable finance, tracking funds from bank transfer to carbon reduction.
+**The Trust Layer for Sustainable Finance**
 
-**Documentation**: [Impact Ledger Docs](https://docs.google.com/document/d/1y3NTvdnjoWpt7JFDY1fNT-WMFGcrIAWCRn57IBbzWms/edit?usp=sharing)
+Impact Ledger is a blockchain-based platform designed to eliminate greenwashing in sustainable finance. By binding loan disbursements to verified environmental impact milestones, we ensure that every dollar invested generates real, measurable change.
 
-## Features
-- **Blockchain Verification**: Built on Polygon for immutable audit trails.
-- **AI-Powered Analysis**: Greenwashing detection and automated impact verification.
-- **Smart Escrow**: Funds are released only upon milestone verification.
-- **Real-time Dashboard**: Track metrics and impact in real-time.
+![Impact Ledger Hero](https://images.unsplash.com/photo-1542601906990-b4d3fb7d5b43?auto=format&fit=crop&q=80&w=2000)
 
-## Tech Stack
-- **Framework**: [Vite](https://vitejs.dev/) + [React](https://react.dev/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
-- **Routing**: [React Router](https://reactrouter.com/)
+## 🚀 The Problem
+- **Greenwashing**: 40% of corporate green claims are unverifiable.
+- **Opacity**: Lenders have no visibility into how funds are actually used after deployment.
+- **Inefficiency**: Manual auditing is slow, expensive, and prone to human error.
 
-## Getting Started
+## 💡 The Solution
+Impact Ledger replaces manual audits with **AI-driven verification** and **Smart Escrow Contracts**. Funds are locked in a smart contract and released *only* when computer vision AI verifies the physical evidence of progress (e.g., drone footage of solar panel installation).
+
+---
+
+## 🏗️ Architecture & Technology
+
+### Frontend (Current Implementation)
+- **Framework**: React (Vite) + TypeScript
+- **Styling**: Tailwind CSS + Shadcn/UI
+- **Animations**: Framer Motion
+- **Charting**: Recharts
+
+### Verification Engine (Simulated Demo)
+- **AI Simulator**: Simulates analyzing drone footage and site documents for compliance.
+- **Blockchain Simulator**: Simulates minting "Proof of Impact" tokens (NFTs) on the Polygon network.
+
+---
+
+## 🔮 Future Roadmap: Backend & Smart Contracts
+
+We are actively building the decentralized infrastructure to power the next version of Impact Ledger.
+
+### 1. Smart Contract Backend (Solidity/Polygon)
+We will deploy `GreenLoan.sol` contracts to the Polygon Amoy testnet.
+- **Escrow Logic**: A `LoanVault` contract that holds USDC/stablecoins.
+- **Milestone Unlocking**: Only the `VerifierOracle` address can trigger a `releaseTranche()` function.
+- **Impact NFTs**: Implementing **ERC-1155** tokens to represent verified carbon credits and impact milestones.
+
+### 2. AI Integration (Python/TensorFlow)
+Moving from simulation to real-time inference.
+- **Model**: Custom-trained CNN (Convolutional Neural Network) for identifying solar arrays, wind turbines, and construction materials from aerial imagery.
+- **Pipeline**:
+    1.  User uploads video/image to IPFS.
+    2.  Python backend fetches CID and runs inference.
+    3.  If confidence > 95%, backend signs a transaction to the Smart Contract.
+
+### 3. Data Availability
+- **The Graph**: Indexing smart contract events for real-time querying on the dashboard.
+- **IPFS/Filecoin**: Decentralized storage for all large evidence files (videos, high-res docs).
+
+---
+
+## 🏁 Getting Started
 
 ### Prerequisites
-- Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js (v18+)
+- npm/yarn
 
 ### Installation
 
-1. Clone the repository:
-   ```sh
-   git clone <YOUR_GIT_URL>
-   ```
-
-2. Navigate to the project directory:
-   ```sh
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/gitsofaryan/Impact-Ledger.git
    cd impact-ledger-dash
    ```
 
-3. Install dependencies:
-   ```sh
+2. **Install dependencies**
+   ```bash
    npm install
    ```
 
-4. Start the development server:
-   ```sh
+3. **Run the development server**
+   ```bash
    npm run dev
    ```
 
-## Development
-This project uses a modern React setup with Vite. The `src` directory contains the application source code.
-- `src/pages`: Application views (Landing, Dashboard, etc.)
-- `src/components`: Reusable UI components
-- `src/lib`: Utility functions
+4. **Open the App**
+   Navigate to `http://localhost:8080` to see the dashboard.
 
-## License
-[License Information]
+---
+
+## 👥 Contributors
+
+- **Aryan Jain** - *Lead Developer* - [LinkedIn](https://www.linkedin.com/in/aryan-jain07/)
+
+Built for the **LMA Edge Hackathon**.
