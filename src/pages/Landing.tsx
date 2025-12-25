@@ -67,7 +67,7 @@ function HeroVisual() {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-emerald/20 to-emerald/5 blur-3xl animate-pulse" />
       </div>
-      
+
       {/* Floating chain/leaf visualization */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative">
@@ -197,17 +197,17 @@ function Step({ number, title, description, icon: Icon, isLast }: { number: numb
       {!isLast && (
         <div className="hidden lg:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 bg-gradient-to-r from-emerald/50 to-emerald/20" />
       )}
-      
+
       {/* Step circle */}
       <div className="w-20 h-20 rounded-full navy-gradient flex items-center justify-center mb-6 shadow-xl relative z-10 border-2 border-emerald/30">
         <Icon className="w-8 h-8 text-emerald" />
       </div>
-      
+
       {/* Step number badge */}
       <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full emerald-gradient flex items-center justify-center text-sm font-bold text-accent-foreground shadow-lg">
         {number}
       </div>
-      
+
       <h3 className="font-bold text-lg mb-2">{title}</h3>
       <p className="text-muted-foreground text-sm max-w-[200px]">{description}</p>
     </div>
@@ -234,7 +234,7 @@ export default function Landing() {
             </div>
             <div className="flex items-center gap-3">
               <Button variant="ghost" size="sm" asChild>
-                <a href="https://docs.lovable.dev" target="_blank" rel="noopener noreferrer">
+                <a href="https://docs.google.com/document/d/1y3NTvdnjoWpt7JFDY1fNT-WMFGcrIAWCRn57IBbzWms/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
                   Docs
                 </a>
               </Button>
@@ -253,7 +253,7 @@ export default function Landing() {
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 relative">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-background pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             {/* Left content */}
@@ -267,18 +267,18 @@ export default function Landing() {
                 <ShieldCheck className="w-4 h-4" />
                 Blockchain-Verified ESG Lending
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
                 The Trust Layer for{" "}
                 <span className="bg-gradient-to-r from-emerald to-emerald-soft bg-clip-text text-transparent">
                   Sustainable Finance
                 </span>
               </h1>
-              
+
               <p className="text-lg lg:text-xl text-muted-foreground max-w-lg leading-relaxed">
                 Eliminate greenwashing with blockchain-verified ESG lending. We track every dollar from bank transfer to carbon reduction.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="emerald-gradient text-base h-14 px-8 shadow-xl hover:shadow-emerald/25 transition-shadow" asChild>
                   <Link to="/dashboard">
@@ -287,7 +287,7 @@ export default function Landing() {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="text-base h-14 px-8 border-2" asChild>
-                  <a href="https://docs.lovable.dev" target="_blank" rel="noopener noreferrer">
+                  <a href="https://docs.google.com/document/d/1y3NTvdnjoWpt7JFDY1fNT-WMFGcrIAWCRn57IBbzWms/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
                     View Documentation
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
@@ -469,7 +469,7 @@ export default function Landing() {
                 <p className="text-sm text-primary-foreground/60">Built for the LMA Edge Hackathon</p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-6">
               <a
                 href="https://github.com"
@@ -491,7 +491,7 @@ export default function Landing() {
               </a>
             </div>
           </div>
-          
+
           <div className="mt-8 pt-8 border-t border-primary-foreground/10 text-center text-sm text-primary-foreground/50">
             © 2024 Impact Ledger. Blockchain-verified sustainable finance.
           </div>
