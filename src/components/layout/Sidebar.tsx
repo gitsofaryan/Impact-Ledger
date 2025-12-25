@@ -65,7 +65,9 @@ export function Sidebar() {
         <div className="h-16 lg:h-20 flex items-center px-4 border-b border-sidebar-border">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl emerald-gradient flex items-center justify-center shadow-lg glow-emerald">
-              <Leaf className="w-6 h-6 text-accent-foreground" />
+              <Link to="/">
+                <Leaf className="w-6 h-6 text-accent-foreground" />
+              </Link>
             </div>
             <div className={cn("transition-opacity", collapsed ? "lg:hidden" : "")}>
               <h1 className="font-bold text-lg text-primary-foreground">Impact Ledger</h1>

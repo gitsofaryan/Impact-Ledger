@@ -142,7 +142,7 @@ const MyLoans = () => {
                       </div>
                     </TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="sm" asChild>
+                      <Button variant="ghost" size="sm" asChild className="hover:text-emerald hover:bg-emerald/10">
                         <Link to={`/loans/${loan.id}`}>
                           View
                           <ArrowRight className="w-4 h-4 ml-1" />

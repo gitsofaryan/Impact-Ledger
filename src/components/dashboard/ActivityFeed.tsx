@@ -1,5 +1,6 @@
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileUp, CheckCircle2, AlertCircle, Clock, ArrowRight } from "lucide-react";
+import { FileUp, CheckCircle2, AlertCircle, Clock, ArrowRight, Activity as ActivityIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
@@ -10,9 +11,10 @@ interface Activity {
   description: string;
   time: string;
   loanId?: string;
+  isNew?: boolean;
 }
 
-const activities: Activity[] = [
+const initialActivities: Activity[] = [
   {
     id: "1",
     type: "upload",
@@ -47,6 +49,13 @@ const activities: Activity[] = [
   },
 ];
 
+const simulatedEvents: Omit<Activity, "id" | "time">[] = [
+  { type: "upload", title: "Drone Footage Received", description: "Site survey for Nevada Solar - Sector 4", loanId: "LN-2024-0040" },
+  { type: "approval", title: "Smart Contract Executed", description: "Released 50,000 USDC to Wallet 0x82...91", loanId: "LN-2024-0041" },
+  { type: "pending", title: "AI Analysis Started", description: "Verifying construction materials invoice", loanId: "LN-2024-0042" },
+  { type: "alert", title: "Compliance Check", description: "Yearly impact compliance audit initiated", loanId: "LN-2024-0039" },
+];
+
 const iconMap = {
   upload: FileUp,
   approval: CheckCircle2,
@@ -62,17 +71,39 @@ const colorMap = {
 };
 
 export function ActivityFeed() {
+  const [activities, setActivities] = useState<Activity[]>(initialActivities);
+
+  useEffect(() => {
+    // Simulate live events happening every 5-10 seconds
+    const interval = setInterval(() => {
+      const randomEvent = simulatedEvents[Math.floor(Math.random() * simulatedEvents.length)];
+      const newActivity: Activity = {
+        id: Date.now().toString(),
+        ...randomEvent,
+        time: "Just now",
+        isNew: true,
+      };
+
+      setActivities((prev) => [newActivity, ...prev.slice(0, 4)]); // Keep last 5
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <Card className="h-full">
+    <Card className="h-full border-l-4 border-l-emerald shadow-sm">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg font-semibold">Recent Activity</CardTitle>
+          <div className="flex items-center gap-2">
+            <ActivityIcon className="w-5 h-5 text-emerald animate-pulse" />
+            <CardTitle className="text-lg font-semibold">Live Network</CardTitle>
+          </div>
           <Link
             to="/activity"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
           >
-            View all
-            <ArrowRight className="w-3 h-3" />
+            Confirmed
+            <div className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
           </Link>
         </div>
       </CardHeader>
@@ -83,10 +114,10 @@ export function ActivityFeed() {
             <div
               key={activity.id}
               className={cn(
-                "flex gap-4 p-3 rounded-lg transition-all duration-200 hover:bg-secondary/50 cursor-pointer",
-                "animate-fade-in"
+                "flex gap-4 p-3 rounded-lg transition-all duration-500 hover:bg-secondary/50 cursor-pointer",
+                activity.isNew ? "bg-emerald/5 animate-in slide-in-from-left-4 fade-in duration-500" : "animate-fade-in"
               )}
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ animationDelay: activity.isNew ? "0ms" : `${index * 100}ms` }}
             >
               <div
                 className={cn(
@@ -99,7 +130,7 @@ export function ActivityFeed() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-2">
                   <p className="font-medium text-sm truncate">{activity.title}</p>
-                  <span className="text-xs text-muted-foreground whitespace-nowrap">
+                  <span className={cn("text-xs whitespace-nowrap", activity.isNew ? "text-emerald font-semibold" : "text-muted-foreground")}>
                     {activity.time}
                   </span>
                 </div>
