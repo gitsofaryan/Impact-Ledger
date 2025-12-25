@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 const navItems = [
-  { label: "Dashboard", icon: LayoutDashboard, href: "/" },
+  { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
   { label: "My Loans", icon: FileText, href: "/loans" },
   { label: "Impact Verification", icon: ShieldCheck, href: "/verification" },
   { label: "Wallet", icon: Wallet, href: "/wallet" },
@@ -76,9 +76,9 @@ export function Sidebar() {
 
         {/* Navigation */}
         <nav className="flex-1 py-6 px-3 space-y-1">
-          {navItems.map((item) => {
+        {navItems.map((item) => {
             const isActive = location.pathname === item.href || 
-              (item.href !== "/" && location.pathname.startsWith(item.href));
+              (item.href !== "/dashboard" && location.pathname.startsWith(item.href));
             return (
               <Link
                 key={item.href}
